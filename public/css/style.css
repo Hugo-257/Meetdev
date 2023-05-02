@@ -1,7 +1,23 @@
-body {
-    font-family: Arial;
-    font-size: 14px;
+@font-face {
+	font-family: "SFPro";
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYBLACKITALIC.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYHEAVYITALIC.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYLIGHTITALIC.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYMEDIUM.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYSEMIBOLDITALIC.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYTHINITALIC.OTF");
+	src: url("../fonts/sf-pro-display/SFPRODISPLAYULTRALIGHTITALIC.OTF");
 }
+
+
+body{
+    font-family: 'SFPro',sans-serif, !important;
+    scroll-behavior:smooth !important;
+    max-width: 100vw;
+}
+
 .logo {
     font-size: 100px;
     font-weight: bolder;

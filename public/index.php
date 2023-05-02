@@ -32,7 +32,13 @@ require APP . 'libs/helper.php';
 
 // load application class
 require APP . 'core/application.php';
-require APP . 'core/controller.php';
+require APP . 'core/db.php';
+
+//load models
+require APP . 'model/utilisateur.php';
+require APP . 'model/event.php';
+require APP . 'model/favorite.php';
+
 
 // start the application
 $app = new Application();

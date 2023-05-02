@@ -1,14 +1,8 @@
 <?php
 
-/**
- * Class Home
- *
- * Please note:
- * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
- * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
- *
- */
-class Home extends Controller
+session_start();
+
+class Home
 {
     /**
      * PAGE: index
@@ -17,39 +11,17 @@ class Home extends Controller
     public function index()
     {
         // load views
-        require APP . 'view/_templates/header.php';
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            header('Location: ' . URL . 'auth/login');
+        if (session_status() !== PHP_SESSION_ACTIVE || !isset($_SESSION["user"])) {
+            require APP . 'view/_templates/header_public.php';
         } else {
-            require APP . 'view/home/index.php';
+            $user = Helper::decrypt($_SESSION["user"]);
+            $avatarName = strtoupper(substr($user["nom"], 0, 1)) . strtoupper(substr($user["prenom"], 0, 1));
+            $favorites = Favorite::getFavoritesUserId($user["id"]);
+            require APP . 'view/_templates/header_auth.php';
         }
-
+        $events = Event::getAllEvents();
+        require APP . 'view/home/index.php';
         require APP . 'view/_templates/footer.php';
-    }
 
-    /**
-     * PAGE: exampleone
-     * This method handles what happens when you move to http://yourproject/home/exampleone
-     * The camelCase writing is just for better readability. The method name is case-insensitive.
-     */
-    public function exampleOne()
-    {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/example_one.php';
-        require APP . 'view/_templates/footer.php';
-    }
-
-    /**
-     * PAGE: exampletwo
-     * This method handles what happens when you move to http://yourproject/home/exampletwo
-     * The camelCase writing is just for better readability. The method name is case-insensitive.
-     */
-    public function exampleTwo()
-    {
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/example_two.php';
-        require APP . 'view/_templates/footer.php';
     }
 }
