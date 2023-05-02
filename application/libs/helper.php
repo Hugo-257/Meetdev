@@ -64,6 +64,9 @@ class Helper
         $array = explode(" ", $time);
         return $array[0] . ":" . "00";
     }
+
+
+
     static public function getMonthFromDate($date)
     {
         // Convert date to Unix timestamp
@@ -74,6 +77,8 @@ class Helper
 
         return $month;
     }
+
+
     static public function encrypt($value)
     {
         //Encryption key

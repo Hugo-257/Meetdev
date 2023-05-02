@@ -13,10 +13,10 @@
                     
                             <img class="w-full" src="<?php echo (URL . 'uploads/' . $event->image); ?>"
                             alt="event-img" />
-                            <a href="#">
+                            <a href="<?php echo URL . "admin/edit?id=" .$event->id?>">
                                         <div
                                             class=" absolute w-[2.5rem] h-[2.5rem] rounded-full bg-white  top-3 right-3 flex justify-center items-center">
-                                            <img  alt="edit-icon" />
+                                            <img  src="<?php echo URL . "img/edit-icon.png" ?>" alt="edit-icon" />
                                         </div>
                                     </a>
                             <a href="<?php echo URL . "details?id=" . $event->id ?>">

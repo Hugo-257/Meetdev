@@ -12,14 +12,14 @@ class DB
 
             try {
                 //***** unicaen db *******
-                // $connectionString = "mysql:host=mysql.info.unicaen.fr;port=3306;dbname=ntore221_bd;charset=utf8";
-                // $username = "ntore221";
-                // $password = "ahye1iiweeRooth9";
+                $connectionString = "mysql:host=mysql.info.unicaen.fr;port=3306;dbname=ntore221_dev;charset=utf8";
+                $username = "ntore221";
+                $password = "ahye1iiweeRooth9";
 
                 //***** localhost db *******
-                $connectionString="mysql:host=localhost;dbname=meetdev;charset=utf8";
-                $username="root";
-                $password="";
+                // $connectionString="mysql:host=localhost;dbname=meetdev;charset=utf8";
+                // $username="root";
+                // $password="";
 
                 self::$connection = new PDO($connectionString, $username, $password);
                 self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

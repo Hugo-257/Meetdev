@@ -34,10 +34,25 @@ class Event
 
     public function addEvent()
     {
+
+        //Get instance of pdo
         $db = DB::getInstance();
         $sql = "INSERT INTO event(nom, place ,description, image, date, debut, fin) values (:nom, :place , :description,:image,:date,:debut,:fin)";
         $stmt = $db->prepare($sql);
         $parameters = array(':nom' => $this->nom,':place' => $this->place, ':description' => $this->description, ':image' => $this->image, ':date' => $this->date, ':debut' => $this->debut, ':fin' => $this->fin);
+        $res = $stmt->execute($parameters);
+        // Execute statement and return boolean result
+        return $res;
+    }
+
+
+    public function updateEvent()
+    {
+        //Get instance of pdo
+        $db = DB::getInstance();
+        $sql = "update event set  nom= :nom , place = :place , description = :description , image = :image, date = :date, debut = :debut, fin = :fin where id= :id";
+        $stmt = $db->prepare($sql);
+        $parameters = array(':nom' => $this->nom,':place' => $this->place, ':description' => $this->description, ':image' => $this->image, ':date' => $this->date, ':debut' => $this->debut, ':fin' => $this->fin, ":id" => $this->id);
         $res = $stmt->execute($parameters);
         // Execute statement and return boolean result
         return $res;

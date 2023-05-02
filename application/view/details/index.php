@@ -13,11 +13,11 @@
                                 alt="event-img" />
                             <div class="px-3 py-4 flex">
                                 <div class="px-2  basis-1/5 flex flex-col justify-center items-center">
-                                    <p class="font-semibold text-sm text-[#6C63FF]"><?php echo (substr(Helper::getMonthFromDate($event->date), 0, 3))?></p>
-                                    <p class="font-semibold text-sm display-block "><?php echo (explode("-", $event->date)[2]) ?></p>
+                                    <p class="font-semibold text-sm text-[#6C63FF]"><?php echo (substr(Helper::getMonthFromDate($otherEvent->date), 0, 3))?></p>
+                                    <p class="font-semibold text-sm display-block "><?php echo (explode("-", $otherEvent->date)[2]) ?></p>
                                 </div>
                                 <div   class="flex flex-col justify-center items-center">
-                                    <p class="text-sm font-regular mb-2"> <?php echo $event->nom ?>      </p>
+                                    <p class="text-sm font-regular mb-2"> <?php echo $otherEvent->nom ?>      </p>
                                 </div>
                             </div>
                         </div>
